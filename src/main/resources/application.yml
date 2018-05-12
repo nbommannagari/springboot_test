@@ -1,0 +1,37 @@
+server:
+  port: 8888
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: auditevents,beans,conditions,configprops,env,flyway,health,httptrace,info,loggers,metrics,mappings,scheduledtasks,sessions,threaddump,heapdump,logfile,prometheus
+      base-path: /ops
+    enabled-by-default: true
+
+logging:
+  level:
+    io.corbs: DEBUG
+    org.springframework.cloud: DEBUG
+# Pattern is: ${spring.application.name}/${spring.profiles.active}
+#/{application}/{profile}[/{label}]
+#/{application}-{profile}.yml - uses default label=master
+#/{label}/{application}-{profile}.yml
+#/{application}-{profile}.properties
+#/{label}/{application}-{profile}.properties
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/corbtastik/config-repo
+          repos:
+            todosapi-pro:
+              uri: https://github.com/corbtastik/todos-config
+              pattern:
+                - '*/pro'
+  security:
+    user:
+      name: user
+      password: howdy
+

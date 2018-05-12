@@ -1,0 +1,7 @@
+---
+applications:
+- name: corbs-config-server
+  memory: 1G
+  host: corbs-config-server
+  path: target/config-server-1.0.0-PRERELEASE.jar
+  buildpack: java_buildpack
