@@ -1,18 +1,15 @@
 server:
   port: 8888
-
 eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka
-
 management:
   endpoints:
     web:
       exposure:
         include: '*'
       base-path: /ops
-
 logging:
   level:
     io.corbs: DEBUG

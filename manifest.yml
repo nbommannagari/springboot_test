@@ -1,11 +1,10 @@
 ---
 applications:
-- name: config-server
+- name: cloud-server
   memory: 1G
   routes:
-  - route: config-server.apps.pcf.corbscloud.io
-  - route: config-server-1-0-0-RELEASE.apps.pcf.corbscloud.io
-  path: target/config-server-1.0.0.RELEASE.jar
+  - route: config-srv.cfapps.io
+  path: target/config-server-1.0.0.SNAP.jar
   buildpack: java_buildpack
   env:
-    JAVA_OPTS: '-Deureka.client.serviceUrl.defaultZone=http://cloud-index.apps.pcf.corbscloud.io/eureka/'
+    JAVA_OPTS: '-Deureka.client.serviceUrl.defaultZone=http://cloud-index.cfapps.io/eureka/'
